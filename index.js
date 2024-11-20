@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 require("dotenv").config();
 const nodemailer = require("nodemailer");
 const app = express();
@@ -6,7 +7,12 @@ const port = process.env.PORT || 8080;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+const corsOptions = {
+  origin: 'https://email-feed-back-git-main-ahmed-jilanis-projects.vercel.app', 
+  methods: 'GET,POST'
+};
 
+app.use(cors(corsOptions));
 app.get('/', function(req, res){
   res.send("welcome");
 });
