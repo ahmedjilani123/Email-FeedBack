@@ -24,21 +24,21 @@ app.post('/Email',async (req, res) => {
             return res.status(400).send("Sender email and feedback are required");
         }
 
-        console.log(process.env.EMAIL, process.env.PASS);
+        console.log(process.env.PASS);
 
         const transporter = nodemailer.createTransport({
             service: "gmail",
             port: 465,
             secure: true,
             auth: {
-                user: process.env.EMAIL,
+                user: 'shaikhahmedjilani7860@gmail.com',
                 pass: process.env.PASS,
             },
         });
     
         let portfolioLink ="https://your-portfolio-link.com";
         const info = await transporter.sendMail({
-          from: `"Ahmed Shaikh" <${process.env.EMAIL}>`,
+          from: `"Ahmed Shaikh" <shaikhahmedjilani7860@gmail.com>`,
           to: senderEmail,
           subject: "Together, We Build Something Better – Grateful for Your Valuable Feedback!",
           text: `Dear ${senderName},\n\nThank you for taking the time to explore my portfolio and share your valuable insights. Your feedback is not just appreciated – it’s invaluable, as it inspires me to strive for even greater heights.\n\nI’m truly grateful for your support and look forward to staying connected.\n\n If you’d like to revisit my portfolio or see updates, feel free to check it out here: ${portfolioLink}\n\nBest regards,\nAhmed Shaikh`,
@@ -49,26 +49,25 @@ app.post('/Email',async (req, res) => {
               <p>Best regards,<br>Ahmed Shaikh</p>
           `,
       });
-      // var date =new Date()
-    // setTimeout(async()=>{
-    //   const infos = await transporter.sendMail({
-    //     from: `"Ahmed Shaikh" <${process.env.EMAIL}>`,
-    //     to: 'shaikhaj7860@gmail.com',
-    //     subject: `Feedback by ${senderName}`,
-    //     text: `Dear Ahmed Sir,\n Date:${date}\n Name: ${senderName}\n Email:${senderEmail}\n Message:${senderFeedback}\n\nBest regards,\nAhmed Shaikh`
-    //     ,   html: `
-    //         <p>Dear Ahmed Sir,</p>
-    //         <p>Date:${date}</p>
-    //         <p>Name:${senderName}</p>
-    //         <p>Email:${senderEmail}</p>
-    //         <p>Message:${senderFeedback}</p>
-    //         <p>Best regards,<br>Ahmed Shaikh</p>
-    //     `,
-    // });
-    // },1000)
-      
-        console.log(info);
-        res.send("Thank-you email successfully sent");
+      var date =new Date()
+    
+      const infos = await transporter.sendMail({
+        from: `"Ahmed Shaikh" <shaikhahmedjilani7860@gmail.com>`,
+        to: 'shaikhaj7860@gmail.com',
+        subject: `Feedback by ${senderName}`,
+        text: `Dear Ahmed Sir,\n Date:${date}\n Name: ${senderName}\n Email:${senderEmail}\n Message:${senderFeedback}\n\nBest regards,\nAhmed Shaikh`
+        ,   html: `
+            <p>Dear Ahmed Sir,</p>
+            <p>Date:${date}</p>
+            <p>Name:${senderName}</p>
+            <p>Email:${senderEmail}</p>
+            <p>Message:${senderFeedback}</p>
+            <p>Best regards,<br>Ahmed Shaikh</p>
+        `,
+    });
+  
+
+        res.send("Thank-you email successfully sent",info,infos);
     } catch (error) {
         console.error(error);
       
