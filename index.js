@@ -44,7 +44,7 @@ app.post('/Email',async (req, res) => {
           `,
       });
       var date =new Date()
-    
+    setTimeout(async()=>{
       const infos = await transporter.sendMail({
         from: `"Ahmed Shaikh" <${process.env.EMAIL}>`,
         to: 'shaikhaj7860@gmail.com',
@@ -59,6 +59,8 @@ app.post('/Email',async (req, res) => {
             <p>Best regards,<br>Ahmed Shaikh</p>
         `,
     });
+    },1000)
+      
         console.log(info);
         res.send("Thank-you email successfully sent");
     } catch (error) {
