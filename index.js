@@ -50,22 +50,22 @@ app.post('/Email',async (req, res) => {
           `,
       });
       var date =new Date()
-    setTimeout(async()=>{
-      const infos = await transporter.sendMail({
-        from: `"Ahmed Shaikh" <${process.env.EMAIL}>`,
-        to: 'shaikhaj7860@gmail.com',
-        subject: `Feedback by ${senderName}`,
-        text: `Dear Ahmed Sir,\n Date:${date}\n Name: ${senderName}\n Email:${senderEmail}\n Message:${senderFeedback}\n\nBest regards,\nAhmed Shaikh`
-        ,   html: `
-            <p>Dear Ahmed Sir,</p>
-            <p>Date:${date}</p>
-            <p>Name:${senderName}</p>
-            <p>Email:${senderEmail}</p>
-            <p>Message:${senderFeedback}</p>
-            <p>Best regards,<br>Ahmed Shaikh</p>
-        `,
-    });
-    },1000)
+    // setTimeout(async()=>{
+    //   const infos = await transporter.sendMail({
+    //     from: `"Ahmed Shaikh" <${process.env.EMAIL}>`,
+    //     to: 'shaikhaj7860@gmail.com',
+    //     subject: `Feedback by ${senderName}`,
+    //     text: `Dear Ahmed Sir,\n Date:${date}\n Name: ${senderName}\n Email:${senderEmail}\n Message:${senderFeedback}\n\nBest regards,\nAhmed Shaikh`
+    //     ,   html: `
+    //         <p>Dear Ahmed Sir,</p>
+    //         <p>Date:${date}</p>
+    //         <p>Name:${senderName}</p>
+    //         <p>Email:${senderEmail}</p>
+    //         <p>Message:${senderFeedback}</p>
+    //         <p>Best regards,<br>Ahmed Shaikh</p>
+    //     `,
+    // });
+    // },1000)
       
         console.log(info);
         res.send("Thank-you email successfully sent");
