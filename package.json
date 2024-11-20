@@ -1,5 +1,5 @@
 {
-  "name": "emailsender",
+  "name": "mail-feedback",
   "version": "1.0.0",
   "description": "backend server for web",
   "main": "index.js",
