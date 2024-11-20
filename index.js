@@ -71,7 +71,8 @@ app.post('/Email',async (req, res) => {
         res.send("Thank-you email successfully sent");
     } catch (error) {
         console.error(error);
-        res.status(500).send("Failed to send thank-you email");
+      
+        res.status(500).send("Failed to send thank-you email",error);
     }
 });
 
