@@ -49,8 +49,10 @@ app.post('/Email',async (req, res) => {
               <p>Best regards,<br>Ahmed Shaikh</p>
           `,
       });
-      var date =new Date()
-    
+      
+      const date = new Date(); 
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      const formattedDate = date.toLocaleDateString('en-US', options);
       const infos = await transporter.sendMail({
         from: `"Ahmed Shaikh" <shaikhahmedjilani7860@gmail.com>`,
         to: 'shaikhaj7860@gmail.com',
@@ -58,10 +60,10 @@ app.post('/Email',async (req, res) => {
         text: `Dear Ahmed Sir,\n Date:${date}\n Name: ${senderName}\n Email:${senderEmail}\n Message:${senderFeedback}\n\nBest regards,\nAhmed Shaikh`
         ,   html: `
             <p>Dear Ahmed Sir,</p>
-            <p>Date:${date}</p>
-            <p>Name:${senderName}</p>
-            <p>Email:${senderEmail}</p>
-            <p>Message:${senderFeedback}</p>
+            <p>Date:${date}</p><br>
+            <p>Name:${senderName}</p><br>
+            <p>Email:${senderEmail}</p><br>
+            <p>Message:${senderFeedback}</p><br><br>
             <p>Best regards,<br>Ahmed Shaikh</p>
         `,
     });
