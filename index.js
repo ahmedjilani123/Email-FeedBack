@@ -60,10 +60,10 @@ app.post('/Email',async (req, res) => {
         text: `Dear Ahmed Sir,\n Date:${date}\n Name: ${senderName}\n Email:${senderEmail}\n Message:${senderFeedback}\n\nBest regards,\nAhmed Shaikh`
         ,   html: `
             <p>Dear Ahmed Sir,</p>
-            <p>Date:${date}</p><br>
-            <p>Name:${senderName}</p><br>
-            <p>Email:${senderEmail}</p><br>
-            <p>Message:${senderFeedback}</p><br><br>
+            <p>Date :${formattedDate}</p>
+            <p>Name :${senderName}</p>
+            <p>Email :${senderEmail}</p>
+            <p>Message :${senderFeedback}</p><br>
             <p>Best regards,<br>Ahmed Shaikh</p>
         `,
     });
