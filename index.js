@@ -67,12 +67,8 @@ app.post('/Email',async (req, res) => {
             <p>Best regards,<br>Ahmed Shaikh</p>
         `,
     });
-  
-
-        res.send("Thank-you email successfully sent",info,infos);
+        res.status(200).json({Message:"Thank-you email successfully sent"});
     } catch (error) {
-        console.error(error);
-      
         res.status(500).send("Failed to send thank-you email",error);
     }
 });
